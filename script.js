@@ -1,59 +1,66 @@
-let jogadores = [];
-let itens = [];
-let angulo = 0;
+let players = [];
+let items = [];
+let angle = 0;
 
-function addJogador() {
-  const nome = document.getElementById("nome").value;
-  const numero = parseInt(document.getElementById("numero").value);
+function addPlayer() {
+  const name = pname.value;
+  const number = parseInt(pnumber.value);
+  const bet = parseFloat(pbet.value);
 
-  if(!nome || isNaN(numero)) return alert("Preencha os dados!");
+  if(!name || isNaN(number) || isNaN(bet)) return alert("Preencha tudo!");
 
-  jogadores.push({nome, numero, valor:10, saldo:0});
-  atualizar();
+  players.push({name, number, bet, balance:0});
+  pname.value = pnumber.value = pbet.value = "";
+  render();
 }
 
 function addItem() {
-  const n = itemNome.value;
-  const num = parseInt(itemNum.value);
+  const n = iname.value;
+  const num = parseInt(inumber.value);
   if(!n || isNaN(num)) return;
-  itens.push({n, num});
-  atualizar();
+  items.push({n, num});
+  iname.value = inumber.value = "";
+  render();
 }
 
-function atualizar() {
-  lista.innerHTML="";
-  saldo.innerHTML="";
-  itensDiv = document.getElementById("itens");
-  itensDiv.innerHTML="";
+function render() {
+  playersDiv.innerHTML="";
+  balance.innerHTML="";
+  itemsDiv.innerHTML="";
 
-  jogadores.forEach(j=>{
-    lista.innerHTML += `<div>${j.nome} | 🎯 ${j.numero}</div>`;
-    saldo.innerHTML += `<div>${j.nome}: ${j.saldo}</div>`;
+  players.forEach(p=>{
+    playersDiv.innerHTML += `<div>${p.name} | 🎯 ${p.number} | 💰 ${p.bet}</div>`;
+    balance.innerHTML += `<div>${p.name}: ${p.balance}</div>`;
   });
 
-  itens.forEach(i=>{
-    itensDiv.innerHTML += `<div>${i.n} → ${i.num}</div>`;
+  items.forEach(i=>{
+    itemsDiv.innerHTML += `<div>${i.n} → ${i.num}</div>`;
   });
 }
 
-function girar() {
-  const sorte = Math.floor(Math.random()*10);
-  angulo += 360*5 + sorte*36;
-  roleta.style.transform = `rotate(${angulo}deg)`;
+function spin() {
+  if(players.length < 2) return alert("Adicione jogadores!");
+
+  const result = Math.floor(Math.random()*10);
+  angle += 360*5 + result*36;
+  wheel.style.transform = `rotate(${angle}deg)`;
 
   setTimeout(()=>{
-    let ganhador = jogadores.find(j=>j.numero===sorte);
+    let winner = players.find(p=>p.number === result);
     let total = 0;
-    jogadores.forEach(j=>{
-      if(j!==ganhador) total += j.valor;
+
+    players.forEach(p=>{
+      if(p !== winner) total += p.bet;
     });
 
-    if(ganhador){
-      ganhador.saldo += total;
-      alert("🎉 " + ganhador.nome + " ganhou " + total);
+    if(winner){
+      winner.balance += total;
+      alert(`🎉 ${winner.name} ganhou ${total}! Número: ${result}`);
     } else {
-      alert("😅 Ninguém acertou");
+      alert(`😅 Ninguém acertou! Número: ${result}`);
     }
-    atualizar();
+
+    render();
   },3000);
 }
+
