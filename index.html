@@ -16,13 +16,13 @@
       <div class="edit">✏️</div>
 
       <div class="arrow"></div>
-      <div class="wheel-container">
+      <div class="wheel-wrapper">
         <div id="wheel" class="wheel"></div>
       </div>
 
-      <button class="btn" onclick="spin()">Girar</button>
+      <button class="btn" onclick="spin()">GIRAR</button>
 
-      <div class="bets" id="bets"></div>
+      <div class="bets" id="betsList"></div>
       <button class="btn add" onclick="addBetLine()">+</button>
     </div>
 
@@ -31,44 +31,46 @@
 
       <div class="box">
         <h3>Participantes</h3>
-        <div id="players"></div>
+        <div id="playersList"></div>
         <div class="line">
-          <input id="pname" placeholder="nome">
-          <input id="pnumber" type="number" placeholder="valor principal">
+          <input id="pname" placeholder="Nome">
+          <input id="pnumber" type="number" placeholder="Número">
         </div>
         <div class="line">
-          <input id="pbet" type="number" placeholder="aposta">
+          <input id="pbet" type="number" placeholder="Valor apostado">
           <button class="btn small" onclick="addPlayer()">+</button>
         </div>
       </div>
 
       <div class="box">
         <h3>Valor Final</h3>
-        <div id="balance"></div>
+        <div id="balanceList"></div>
       </div>
 
       <div class="box">
         <h3>Itens da Roleta</h3>
-        <div id="items"></div>
+        <div id="itemsList"></div>
         <div class="line">
-          <input id="iname" placeholder="item">
-          <input id="inumber" type="number" placeholder="número">
+          <input id="iname" placeholder="Item">
+          <input id="inumber" type="number" placeholder="Número">
         </div>
         <button class="btn small" onclick="addItem()">+</button>
       </div>
 
       <div class="box">
         <h3>Anotações</h3>
-        <textarea placeholder="Anote aqui..."></textarea>
+        <textarea placeholder="Escreva aqui..."></textarea>
       </div>
 
     </div>
+
   </div>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
     <div class="coluna-direita">
