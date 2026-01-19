@@ -9,32 +9,67 @@
 <body>
 
 <div class="app">
+  <div class="window">
 
-  <div class="janela">
+    <!-- COLUNA ESQUERDA -->
+    <div class="left">
+      <div class="edit">✏️</div>
 
-    <div class="coluna-esquerda">
-      <div class="editar">✏️</div>
+      <div class="arrow"></div>
+      <div class="wheel-container">
+        <div id="wheel" class="wheel"></div>
+      </div>
 
-      <div class="seta"></div>
-      <div class="roleta" id="roleta"></div>
+      <button class="btn" onclick="spin()">Girar</button>
 
-      <button class="btn" onclick="girar()">Girar</button>
+      <div class="bets" id="bets"></div>
+      <button class="btn add" onclick="addBetLine()">+</button>
+    </div>
 
-      <div class="apostas">
-        <div class="linha">
-          <input placeholder="nome">
-          <input placeholder="número">
-          <input placeholder="valor">
+    <!-- COLUNA DIREITA -->
+    <div class="right">
+
+      <div class="box">
+        <h3>Participantes</h3>
+        <div id="players"></div>
+        <div class="line">
+          <input id="pname" placeholder="nome">
+          <input id="pnumber" type="number" placeholder="valor principal">
         </div>
-        <div class="linha">
-          <input placeholder="nome">
-          <input placeholder="número">
-          <input placeholder="valor">
+        <div class="line">
+          <input id="pbet" type="number" placeholder="aposta">
+          <button class="btn small" onclick="addPlayer()">+</button>
         </div>
       </div>
 
-      <button class="btn add">+</button>
+      <div class="box">
+        <h3>Valor Final</h3>
+        <div id="balance"></div>
+      </div>
+
+      <div class="box">
+        <h3>Itens da Roleta</h3>
+        <div id="items"></div>
+        <div class="line">
+          <input id="iname" placeholder="item">
+          <input id="inumber" type="number" placeholder="número">
+        </div>
+        <button class="btn small" onclick="addItem()">+</button>
+      </div>
+
+      <div class="box">
+        <h3>Anotações</h3>
+        <textarea placeholder="Anote aqui..."></textarea>
+      </div>
+
     </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
 
     <div class="coluna-direita">
 
