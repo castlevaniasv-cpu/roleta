@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  background: #eef1f6;
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  padding: 20px;
+}
+
+.janela {
+  background: #cfd8e3;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+}
+
+.coluna-esquerda {
+  width: 300px;
+  background: #bfcbd8;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.editar {
+  text-align: left;
+}
+
+.roleta {
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+  border-radius: 50%;
+  border: 8px solid #333;
+  background: conic-gradient(#6b21a8 0 36deg,#7c3aed 36deg 72deg,#9333ea 72deg 108deg,#a855f7 108deg 144deg,#c084fc 144deg 180deg,#6b21a8 180deg 216deg,#7c3aed 216deg 252deg,#9333ea 252deg 288deg,#a855f7 288deg 324deg,#c084fc 324deg 360deg);
+  transition: transform 3s ease-out;
+}
+
+.seta {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid red;
+  margin: auto;
+}
+
+.btn {
+  background: #374151;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.apostas .linha,
+.box .linha {
+  display: flex;
+  gap: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  border: none;
+}
+
+.coluna-direita {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.box {
+  background: #e5ebf3;
+  border-radius: 8px;
+  padding: 8px;
+}
